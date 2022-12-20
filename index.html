@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đỉnh Tri Thức 2023 - VCNV</title>
+    <link rel="icon" type="image/x-icon" href="icon.png"></link>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="playIntro" onclick="playIntro()">CHẠY INTRO</button>
+
+    <button id="Start" class="startButton"><img src="Start.png" width="100%" height="100%" onclick="Start()"></button>
+    
+    <video id="intro" class="intro" width="100%">
+        <source src="3.Obstacles_IntroVideo.mp4" type="video/mp4">
+    </video>
+
+    <video id="video15s" width="100%">
+        <source src="15sVCNV.mp4" type="video/mp4">
+    </video>
+
+    <div id="rowDisplay">
+        <div id="Row">
+            <div id="Row1" class="container"><br></div>
+            <div id="Row2" class="container"><br></div>
+            <div id="Row3" class="container"><br></div>
+            <div id="Row4" class="container"><br></div>
+        </div>
+
+        <span id="rowButton">
+            <button name="1" onclick="openRow(this)"><img src="NumberRow1.png" width="80px" height="80px"></button><br><br>
+            <button name="2" onclick="openRow(this)"><img src="NumberRow2.png" width="80px" height="80px"></button><br><br>
+            <button name="3" onclick="openRow(this)"><img src="NumberRow3.png" width="80px" height="80px"></button><br><br>
+            <button name="4" onclick="openRow(this)"><img src="NumberRow4.png" width="80px" height="80px"></button><br><br>
+        </span>
+    </div>
+
+    <div id="ObsImage">
+        <img id="Q1" src="3.Obstacles_Hider1.png" width="700px" height="700px"></img>
+        <img id="Q2" src="3.Obstacles_Hider2.png" width="700px" height="700px"></img>
+        <img id="Q3" src="3.Obstacles_Hider3.png" width="700px" height="700px"></img>
+        <img id="Q4" src="3.Obstacles_Hider4.png" width="700px" height="700px"></img>
+        <img id="Q5" src="3.Obstacles_Hider5.png" width="700px" height="700px"></img>
+        <img id="Image" src="CNV.png" width="700px" height="700px"></img>
+    </div>
+
+    <p id="Question"></p>
+
+    <div id="Menu">
+        <button id="openQuestion" onclick="openQuestion()">Mở câu hỏi</button>
+        <button id="Timing" onclick="Timing()">15 giây</button>
+        <button id="Pause" onclick="Pause()">DỪNG</button>
+        <button id="openAnswer" onclick="openAnswer()">Đáp án TS</button>
+        <button id="Right" onclick="Right()">ĐÚNG</button>
+        <button id="Wrong" onclick="Wrong()">SAI</button>
+        <button id="UI" onclick="UI()">Giao diện</button>
+        <button id="centerRow" name="5" onclick="openRow(this)">OTT</button>
+        <button id="turnOffQuestion" onclick="turnOffQuestion()">Tắt</button>
+    </div>
+
+    <div id="Signal">
+        <span id="Name1" name="1" class="ObsSignal1">
+            <button id="W1" name="1" onclick="pickWinner(this)"><img src="Name.png" width = "10%"></button>
+            <span><p id="T1" class="Name"></p></span>
+        </span>
+
+        <span id="Name2" name="2" class="ObsSignal2">
+            <button id="W2" name="2" onclick="pickWinner(this)"><img src="Name.png" width = "10%"></button>
+            <span><p id="T2" class="Name"></p></span>
+        </span>
+
+        <span id="Name3" name="3" class="ObsSignal3">
+            <button id="W3" name="3" onclick="pickWinner(this)"><img src="Name.png" width = "10%"></button>
+            <span><p id="T3" class="Name"></p></span>
+        </span>
+
+        <span id="Name4" name="4" class="ObsSignal4">
+            <button id="W4" name="4" onclick="pickWinner(this)"><img src="Name.png" width = "10%"></button>
+            <span><p id="T4" class="Name"></p></span>
+        </span>
+    </div>
+
+    <div id="signalButton">
+        <button name="1" id="B1" onclick="getSignal(this)"><label id="TS1"></label></button>
+        <button name="2" id="B2" onclick="getSignal(this)"><label id="TS2"></label></button>
+        <button name="3" id="B3" onclick="getSignal(this)"><label id="TS3"></label></button>
+        <button name="4" id="B4" onclick="getSignal(this)"><label id="TS4"></label></button>
+    </div>
+
+    <div id="ObsMode">
+        <button onclick="ShowObs()">CNV</button>
+        <button onclick="WrongObs()">SAI</button>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>

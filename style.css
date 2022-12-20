@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'SVN-Product Sans';
+    src: url('SVN-ProductSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+.centered{
+    position: absolute;
+    top: -160%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 55px;
+    font-family: 'SVN-Product Sans';
+    src: url('SVN-ProductSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    margin: auto;
+}
+
+.intro{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 20;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+}
+button:focus {
+    border: none;
+    outline: none;
+}
+
+html{
+    overflow: hidden;
+    background-image: url("Background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#playIntro{
+    position:absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.startButton{
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 5;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+#Row{
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 41%;
+    left: 48%;
+    width: 100%
+}
+
+#rowButton{
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 43%;
+    left: 130%;
+    width: 100%
+}
+
+#openQuestion{
+    position:absolute;
+    right: 0%;
+    bottom: 0%;
+    z-index: 15;
+}
+
+#Timing{
+    position:absolute;
+    right: 4%;
+    bottom: 0%;
+    z-index: 15;
+}
+
+#openAnswer{
+    position:absolute;
+    right: 0;
+    bottom: 2.5%;
+    z-index: 15;
+}
+
+#Right{
+    position:absolute;
+    right: 0;
+    bottom: 5%;
+    z-index: 15;
+}
+
+#Wrong{
+    position:absolute;
+    right: 3%;
+    bottom: 5%;
+    z-index: 15;
+}
+
+#centerRow{
+    position:absolute;
+    right: 0;
+    bottom: 10%;
+    z-index: 15;
+}
+
+#UI{
+    position:absolute;
+    right: 0%;
+    bottom: 7.5%;
+    z-index: 15;
+}
+
+#Pause{
+    position:absolute;
+    right: 7%;
+    bottom: 0%;
+    z-index: 15;
+}
+
+#Q1, #Q2, #Q3, #Q4, #Q5{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 8;
+}
+
+#Image{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 7;
+}
+
+#rowDisplay, #ObsImage{
+    z-index: 2;
+}
+
+#video15s{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 0;
+}
+
+p{
+    position: absolute;
+    width: 79%;
+    height: 27%;
+    top: 79.75%;
+    left: 51%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 16;
+    color: white;
+    font-size: 30px;
+    font-family: 'SVN-Product Sans';
+    src: url('SVN-ProductSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+#turnOffQuestion{
+    position:absolute;
+    right: 3.5%;
+    bottom: 7.5%;
+    z-index: 15;
+}
+
+.ObsSignal1{
+    position:absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 5.25%;
+}
+
+.ObsSignal2{
+    position:absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 5.25%;
+}
+
+.ObsSignal3{
+    position:absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 60%;
+    left: 5.25%;
+}
+
+.ObsSignal4{
+    position:absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 65%;
+    left: 5.25%;
+}
+
+.Name{
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    font-family: 'SVN-Product Sans';
+    src: url('SVN-ProductSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+#signalButton{
+    position:absolute;
+    left: 0%;
+    bottom: 0%;
+    z-index: 15;
+}
+
+#ObsMode{
+    position: absolute;
+    z-index: 15;
+    margin: 0;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 15;
+}

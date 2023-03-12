@@ -1,216 +1,303 @@
-var ObsLength = 13;
-
-var rowQ =
-["Nhờ những thí nghiệm với cây đậu Hà Lan, Gregor Mendel đã đưa ra những quy luật mà mãi đến năm 1900 mới được các nhà khoa học khác tái phát hiện cũng bằng thực nghiệm nên năm 1900 còn được xem là năm ra đời của ngành học nào?",
-"Trong suốt sự nghiệp của mình, nhạc sĩ Phong Nhã có rất nhiều sáng tác nổi tiếng gắn liền với nhiều thế hệ hơn nửa thế kỉ qua như \"Đi ta đi lên\",  \“Cùng nhau ta đi lên\”, \“Kim Đồng\”,… Những sáng tác trên được nhạc sĩ viết cho lứa tuổi nào?",
-"Loại protein nào góp phần tăng độ đàn hồi của da, chiếm khoảng 25% tổng lượng protein trong cơ thể, khoảng 70% cấu trúc da và được tạo thành từ các amino acid?",
-"Lò xo sẽ bị dãn ra khi ta kéo dãn hai đầu và sẽ trở lại hình dạng ban đầu nếu ngưng tác dụng lực. Hãy cho biết tên của hiện tượng được nêu trên? ",
-"Loại tập tính nào ở động vật mang tính đặc trưng cho mỗi loài?"];
-
-var rowA = ["DITRUYỀN", "TRẺEM", "COLLAGEN", "BIẾNDẠNG"];
-
-var contestantName = ["Văn Hà","con cặc","Nhật Hoàng","Thanh Bình"];
-
-document.getElementById("ObsMode").style.visibility = "hidden";
-document.getElementById("video15s").style.visibility = "hidden";
-document.getElementById("Question").style.visibility = "hidden";
-document.getElementById("intro").style.visibility = "hidden";
-document.getElementById("Start").style.visibility = "hidden";
-document.getElementById("rowDisplay").style.visibility = "hidden";
-document.getElementById("Menu").style.visibility = "hidden";
-document.getElementById("ObsImage").style.visibility = "hidden";
-document.getElementById("Signal").style.visibility = "hidden";
-document.getElementById("signalButton").style.visibility = "hidden";
-document.getElementById("Name1").style.visibility = "hidden";
-document.getElementById("Name2").style.visibility = "hidden";
-document.getElementById("Name3").style.visibility = "hidden";
-document.getElementById("Name4").style.visibility = "hidden";
-
-function playIntro(){
-    document.getElementById("playIntro").style.visibility = "hidden";
-    document.getElementById("intro").style.visibility = "visible";
-    document.getElementById("Start").style.visibility = "hidden";
-    intro.play();
-    setTimeout(closeIntro, 6500);
-}
-
-function closeIntro(){
-    document.getElementById("intro").style.visibility = "hidden";
-    document.getElementById("Start").style.visibility = "visible";
-}
-
-function Start(){
-    document.getElementById("Start").style.visibility = "hidden";
-    var startRound = new Audio("VCNVBatDauVongThi.mp3");
-    startRound.play();
-    setTimeout(Row, 8000);
-}
-
-var i; var j; var rowNumber;
-
-for (i=0; i<4; i++){
-    document.getElementById("TS"+(i+1)).innerHTML = contestantName[i];
-}
-
-function Row(){
-    var showRows = new Audio ("VCNVHienThiHangNgang.mp3");
-    showRows.play();
-    document.getElementById("Menu").style.visibility = "visible";
-    document.getElementById("signalButton").style.visibility = "visible";
-    document.getElementById("rowDisplay").style.visibility = "visible";
-    document.getElementById("ObsMode").style.visibility = "visible";
-    for (i = 0; i<=3; i++){
-        for (j = 0; j<=rowA[i].length-1; j++){
-            rowNumber = "Row" + (i + 1);
-            document.getElementById(rowNumber).innerHTML +=
-                "<span class=\"container\"> <img id=\"BackgroundRow"+String(i+1)+String(j+1)+"\"src=\"Row.png\" width=\"80px\" height=\"80px\"></img> <span class=\"centered\"><label id=\"Char"+String(i+1)+String(j+1)+"\"></label></span></span>";    
+    var CNV = ["XƯƠNG THUỶ TINH","XƯƠNG THỦY TINH"]
+    var quesRow = ["Trong suốt sự nghiệp của mình, nhạc sĩ Phong Nhã có rất nhiều sáng tác nổi tiếng gắn liền với nhiều thế hệ hơn nửa thế kỉ qua như \“Ai yêu Bác Hồ Chí Minh hơn thiếu niên nhi đồng\”, \“Cùng nhau ta đi lên\”, \“Đi ta đi lên\”, \“Kim Đồng\”,… Những sáng tác trên của ông viết cho đối tượng nào?",
+    "Làn da đóng một vai trò cực kỳ quan trọng như một nhân tố phản ánh sức khỏe, tuổi thọ và vẻ đẹp của mỗi người với bên ngoài. Đối với phái nữ, hiện nay có rất nhiều sản phẩm hỗ trợ làm đẹp và bảo vệ da mà họ quảng cáo chứa một loại protein làm chậm tiến trình lão hóa ở phụ nữ. Protein này chiếm 30% tổng lượng protein trong cơ thể, khoảng 70% cấu trúc da và được tạo thành từ các amino acid. Đó là loại protein nào?",
+    "Theo sách giáo khoa Vật lý 11 do Bộ Giáo dục và Đào tạo hiện hành (đến 15/9/2021), hiện tượng khúc xạ ánh sáng là hiện tượng quang học trong đó các tia sáng bị lệch phương hay còn gọi là […] khúc khi truyền xiên góc qua mặt phân cách giữa hai môi trường trong suốt khác nhau. Từ nào còn thiếu trong phát biểu trên?",
+    "Nhờ những thí nghiệm với cây đậu Hà Lan, Gregor Mendel đã đưa ra những quy luật mà đến năm 1900, các quy luật của ông mới được các nhà khoa học khác tái phát hiện cũng bằng thực nghiệm nên năm 1900 còn được xem là năm ra đời của ngành học nào?",
+    "Các loại bệnh mà từ khi em bé được sinh ra đã có được gọi là gì?"]
+    var ansRow = ["TRẺ EM","COLLAGEN","GÃY","DI TRUYỀN","BỆNH BẨM SINH"]
+    var sokitu = ["","","","","",""]
+    var saveAns = [""];
+    document.getElementById("myVideo").style.visibility = 'hidden';
+    document.getElementById("test").style.visibility = 'hidden';
+    document.getElementById("CNV").style.visibility = 'hidden';
+    document.getElementById("hangngang1").style.visibility = 'hidden';
+    document.getElementById("hangngang2").style.visibility = 'hidden';
+    document.getElementById("hangngang3").style.visibility = 'hidden';
+    document.getElementById("hangngang4").style.visibility = 'hidden';
+    document.getElementById("hangngang5").style.visibility = 'hidden';
+    document.getElementById("textboxid").style.visibility = 'hidden';
+    document.getElementById("pic").style.visibility = "hidden";
+    document.getElementById("goc1").style.visibility = "hidden";
+    document.getElementById("goc2").style.visibility = "hidden";
+    document.getElementById("goc3").style.visibility = "hidden";
+    document.getElementById("goc4").style.visibility = "hidden";
+    document.getElementById("goc5").style.visibility = "hidden";
+    var rightRow = new Audio('RightRow.mp3');
+    var wrongRow = new Audio('WrongRow.mp3');
+    var rightObs = new Audio('RightObstacle.mp3');
+    var wrongObs = new Audio('WrongObstacle.mp3');
+    var mainTime = new Audio('OnTime.mp3');
+    var mainTime1 = new Audio('OnTime.mp3');
+    var signalObs = new Audio('Activate.mp3');
+    var pickRow = new Audio('RowChose.mp3');
+    var showAnswer = new Audio('ShowAnswer.mp3');
+    var pictureShow = new Audio('PictureShow.mp3');
+    var hn = ["1","1","1","1"];
+    var check = ["0","0","0","0"];
+    var checkCNV = 0;
+    var checkBtn = 0;
+    var index = "";
+    var sothutu = "";
+    var HN = "";
+    var hangngang = "";
+    var goc = "";
+    var OTT = (function() {
+        var executed = false;
+        return function() {
+            if (!executed) {
+                executed = true;
+                document.getElementById("hangngang5").style.visibility = 'visible';
+            }
+        };
+    
+    })();
+    function showgoc(){
+    }
+    //xử lý số kí tự CNV
+    for(i=0; i<5; i++){
+        sokitu[i] = ansRow[i].split(" ").join("").length;
+    }
+    sokitu[5] = CNV[0].split(" ").join("").length;
+    //
+    function showPicture(){
+        document.getElementById("goc1").style.visibility = "hidden";
+        document.getElementById("goc2").style.visibility = "hidden";
+        document.getElementById("goc3").style.visibility = "hidden";
+        document.getElementById("goc4").style.visibility = "hidden";
+        document.getElementById("goc5").style.visibility = "hidden";
+    }
+    function getAnswer(){
+        if(event.keyCode==13){
+            var answer = document.getElementById("textboxid").value;
+            document.getElementById("textboxid").value = "";
+            answer = answer.toUpperCase();
+            document.getElementById("saveAns").innerHTML = answer;
+            saveAns[0] = answer.replace(/\s+/g,' ').trim();
         }
     }
-}
-
-var questionNumber = 0; var idBackground;
-
-function openRow(Question){
-    questionNumber = Question.name;
-    document.getElementById("rowButton").style.pointerEvents = "none";
-    if (questionNumber!=5){
-        for (j = 0; j<=rowA[questionNumber-1].length-1; j++){
-            idBackground = "BackgroundRow" + String(questionNumber) + String(j+1);
-            document.getElementById(idBackground).src = "ChosenRow.png";   
+    function timing(){
+            checkCNV = 0;
+            document.getElementById("timeQ").innerHTML = 15;
+            var timeleft = 14;
+            var downloadTimer = setInterval(function(){
+                if(timeleft <= 0){
+                    clearInterval(downloadTimer);
+                    document.getElementById("timeQ").innerHTML = "Hết giờ";
+                } else{
+                    document.getElementById("timeQ").innerHTML = timeleft;
+                }
+                if(checkCNV == 1){
+                    clearInterval(downloadTimer);
+                    document.getElementById("timeQ").innerHTML = "";
+                }
+                timeleft -= 1;
+            }, 1000);
+    }
+    function checkAnsCNV(){
+        clearTimeout(timeoutID9);
+        //clearInterval(IntervalID);
+        if(saveAns[0] != " ") mainTime1.pause();
+        checkCNV = 1;
+        document.getElementById("timeQ").innerHTML = "";
+        if (saveAns[0] == CNV[0]||saveAns[0] == CNV[1]){
+            rightObs.play();
+            document.getElementById("question").innerHTML = "Chúc mừng bạn đã vượt qua vòng thi Vượt Chướng Ngại Vật"
+            document.getElementById("CNV").innerHTML = "CHƯỚNG NGẠI VẬT: "+ "<span style='color: green;'>"+CNV[0]+"</span>";
+            showPicture();
+            document.getElementById("HN1").innerHTML = ansRow[0];
+            document.getElementById("HN2").innerHTML = ansRow[1];
+            document.getElementById("HN3").innerHTML = ansRow[2];
+            document.getElementById("HN4").innerHTML = ansRow[3];
+            document.getElementById("HN1").style.color = "green";
+            document.getElementById("HN2").style.color = "green";
+            document.getElementById("HN3").style.color = "green";
+            document.getElementById("HN4").style.color = "green";
+            }
+            else{
+                wrongObs.play();
+                document.getElementById("CNV").innerHTML = "CHƯỚNG NGẠI VẬT: "+ "<span style='color: red;'>"+CNV[0]+"</span>";
+                if (saveAns[0] == " "|| saveAns[0] == ""){document.getElementById("question").innerHTML = "Bạn chưa đưa ra câu trả lời cho chướng ngại vật";}
+                else document.getElementById("question").innerHTML = "Bạn đã trả lời sai chướng ngại vật";
+                showPicture();
+                document.getElementById("HN1").innerHTML = ansRow[0];
+                document.getElementById("HN2").innerHTML = ansRow[1];
+                document.getElementById("HN3").innerHTML = ansRow[2];
+                document.getElementById("HN4").innerHTML = ansRow[3];
+                if (check[0] == 0) document.getElementById("HN1").style.color = "red";
+                if (check[1] == 0) document.getElementById("HN2").style.color = "red";
+                if (check[2] == 0) document.getElementById("HN3").style.color = "red";
+                if (check[3] == 0) document.getElementById("HN4").style.color = "red";
+            }
+    }
+    function ansObs(){  
+        checkCNV = 1;
+        checkBtn = 1;
+        signalObs.play();
+        document.getElementById("question").innerHTML = "Bạn đã ấn chuông xin trả lời chướng ngại vật";
+        document.getElementById("status").innerHTML = "Chướng ngại vật";
+        document.getElementById("sokitu").innerHTML = sokitu[5]+" kí tự ";
+        document.getElementById("test").style.visibility = 'hidden';
+        document.getElementById("timeQ").innerHTML = "";
+        //clearTimeout(timeoutID10);
+        IntervalID = setInterval(function(){
+            clearTimeout(timeoutID1); mainTime.pause();
+            clearTimeout(timeoutID2);
+            clearTimeout(timeoutID3);
+            clearTimeout(timeoutID4);
+            clearTimeout(timeoutID5);
+            clearTimeout(timeoutID6);
+            clearTimeout(timeoutID7);
+            clearTimeout(timeoutID8);
+        },1);
+        hideRow();
+        document.getElementById("textboxid").removeEventListener("keyup", getAnswer);
+        setTimeout(function(){
+            document.getElementById("question").innerHTML = "Hãy nhập CHƯỚNG NGẠI VẬT và ấn enter để trả lời. Bạn có 15 giây.";
+            timing();
+            saveAns[0] = " ";
+            mainTime1.play();
+            document.getElementById("textboxid").addEventListener("keyup", getObstacle);
+            timeoutID9 = setTimeout(function(){
+                document.getElementById("textboxid").removeEventListener("keyup", getObstacle);
+                checkAnsCNV();
+            }, 15000)
+        }, 3000)
+    }
+    function getObstacle(){
+        if(event.keyCode==13){
+            //rickroll
+            //var vid = document.getElementById("myVideo");
+            //document.getElementById("myVideo").style.visibility = 'visible';
+            //vid.autoplay = true;
+            //vid.load();
+            //
+            document.getElementById("textboxid").removeEventListener("keyup", getObstacle);
+            var answer = document.getElementById("textboxid").value;
+            document.getElementById("textboxid").value = "";
+            answer = answer.toUpperCase();
+            document.getElementById("saveAns").innerHTML = answer;
+            saveAns[0] = answer.replace(/\s+/g,' ').trim();
+            checkAnsCNV();
         }
     }
-    var openRowSound = new Audio("VCNVChonHangNgang.mp3");
-    openRowSound.play();
-}
-
-var checkQuestioning = false;
-
-function openQuestion(){
-    var openQuestionSound = new Audio("VCNVMoCauHoi.mp3");
-    openQuestionSound.play();
-    checkQuestioning = true;
-    document.getElementById("Question").style.visibility = "visible";
-    document.getElementById("video15s").style.visibility = "visible";
-    document.getElementById("Question").innerHTML = rowQ[questionNumber-1];
-}
-
-var timingVideo = document.getElementById("video15s");
-
-function Timing(){
-    timingVideo.play();   
-}
-
-function Pause(){
-    timingVideo.pause();
-}
-
-function openAnswer(){
-    var openAnswerSound = new Audio("VCNVMoDapAnThiSinh.mp3");
-    openAnswerSound.play();
-}
-
-function Right(){
-    var rightSound = new Audio("VCNVDungHangNgang.mp3");
-    rightSound.play();
-    if (questionNumber != 5){
-        for (j = 0; j<=rowA[questionNumber-1].length-1; j++){
-            idBackground = "Char" + String(questionNumber) + String(j+1);
-            document.getElementById(idBackground).innerHTML = rowA[questionNumber-1].charAt(j); 
-        }
+    function hideRow(){
+        document.getElementById("ques1").style.visibility = 'hidden';
+        document.getElementById("ques2").style.visibility = 'hidden';
+        document.getElementById("ques3").style.visibility = 'hidden';
+        document.getElementById("ques4").style.visibility = 'hidden';
+        document.getElementById("hangngang5").style.visibility = 'hidden';
     }
-    document.getElementById("Q"+questionNumber).style.visibility = "hidden";
-}
-
-function Wrong(){
-    var wrongSound = new Audio("VCNVSaiHangNgangHoacCNV.mp3");
-    wrongSound.play();
-    for (j = 0; j<=rowA[questionNumber-1].length-1; j++){
-        idBackground = "BackgroundRow" + String(questionNumber) + String(j+1);
-        document.getElementById(idBackground).src = "FalseRow.png";   
+    function checkRow(){
+        if(hn[0] == 0) {document.getElementById("ques1").style.visibility = 'hidden';} else {document.getElementById("ques1").style.visibility = 'visible'};
+        if(hn[1] == 0) {document.getElementById("ques2").style.visibility = 'hidden';} else {document.getElementById("ques2").style.visibility = 'visible'};
+        if(hn[2] == 0) {document.getElementById("ques3").style.visibility = 'hidden';} else {document.getElementById("ques3").style.visibility = 'visible'};
+        if(hn[3] == 0) {document.getElementById("ques4").style.visibility = 'hidden';} else {document.getElementById("ques4").style.visibility = 'visible'};
+        if(hn[0] == 0 && hn[1] == 0 && hn[2] == 0 && hn[3] == 0){OTT();}
     }
-}       
-
-var checkPress = true;
-
-function UI(){
-    if (checkPress == true){
-        if (checkObs == false){
-            var openImageSound = new Audio("VCNVMoGocHinhAnh.mp3");
-            openImageSound.play();
-        }
-        document.getElementById("ObsImage").style.visibility = "visible";
-        document.getElementById("rowDisplay").style.visibility = "hidden";
-        document.getElementById("video15s").style.visibility = "hidden";
-        document.getElementById("Question").style.visibility = "hidden";
-        checkPress = false;
-        
+    function start(){
+        var startRound = new Audio('Start.mp3');
+        startRound.play();
+        document.getElementById('button').style.visibility = 'hidden';
+        document.getElementById("question").innerHTML = "";
+        setTimeout(function(){
+            var showRows = new Audio('RowShow.mp3');
+            showRows.play();
+            setTimeout(function(){
+                document.getElementById("question").innerHTML = "Ấn vào số bên cạnh hàng ngang để chọn";
+                document.getElementById("textboxid").style.visibility = 'visible';
+                document.getElementById("test").style.visibility = 'visible';
+                document.getElementById("ques1").style.visibility = 'visible';
+                document.getElementById("ques2").style.visibility = 'visible';
+                document.getElementById("ques3").style.visibility = 'visible';
+                document.getElementById("ques4").style.visibility = 'visible';
+            }, 4000)
+            document.getElementById("CNV").innerHTML = "CHƯỚNG NGẠI VẬT CÓ "+sokitu[5]+" KÍ TỰ";
+            document.getElementById("CNV").style.visibility = 'visible';
+            document.getElementById("HN1").style.visibility = 'visible';
+            document.getElementById("HN2").style.visibility = 'visible';
+            document.getElementById("HN3").style.visibility = 'visible';
+            document.getElementById("HN4").style.visibility = 'visible';
+            document.getElementById("pic").style.visibility = "visible";
+            document.getElementById("goc1").style.visibility = "visible";
+            document.getElementById("goc2").style.visibility = "visible";
+            document.getElementById("goc3").style.visibility = "visible";
+            document.getElementById("goc4").style.visibility = "visible";
+            document.getElementById("goc5").style.visibility = "visible";
+        }, 6000)
     }
-    else {
-        document.getElementById("ObsImage").style.visibility = "hidden";
-        document.getElementById("rowDisplay").style.visibility = "visible";
-        if (checkQuestioning == true){
-            document.getElementById("video15s").style.visibility = "visible";
-            document.getElementById("Question").style.visibility = "visible";
-        }
-        checkPress = true;
+    function ques(btn){
+        saveAns[0]="";
+        index = btn.name;
+        sothutu = parseInt(index);
+        HN = "HN"+sothutu;
+        hangngang = "hangngang"+sothutu;
+        goc = "goc"+sothutu;
+        document.getElementById("question").innerHTML = "";
+        document.getElementById("status").innerHTML = "Hàng ngang số "+sothutu;
+        if (btn.name == 5){document.getElementById("status").innerHTML = "Ô trung tâm"}
+        hn[sothutu-1] = 0;
+        hideRow();
+        document.getElementById(hangngang).style.color = "blue"
+        document.getElementById("sokitu").innerHTML = sokitu[sothutu-1] + " kí tự"
+        pickRow.play();
+        timeoutID1 = setTimeout (function(){
+            document.getElementById("question").innerHTML = quesRow[sothutu-1]
+            var time = ((quesRow[sothutu-1].length - (quesRow[sothutu-1].length % 45))/45)*1000;
+            timeoutID2 = setTimeout(function(){
+                mainTime.play();
+                timing();
+                document.getElementById("textboxid").addEventListener("keyup", getAnswer);
+                timeoutID3 = setTimeout(function(){
+                    document.getElementById("textboxid").removeEventListener("keyup", getAnswer);
+                }, 15000);
+                timeoutID4 = setTimeout(function(){
+                    showAnswer.play();
+                }, 17000)
+                timeoutID5 = setTimeout(function(){
+                    if (saveAns[0] == ansRow[sothutu-1]){
+                        rightRow.play();
+                        check[sothutu-1] = 1;
+                        document.getElementById(HN).innerHTML = ansRow[sothutu-1];
+                        document.getElementById(hangngang).style.color = "green";
+                            setTimeout(function(){
+                                if (checkBtn == 0){
+                                pictureShow.play();
+                                document.getElementById(goc).style.visibility = "hidden";
+                                }
+                            }, 6000)
+                        }
+                    else {
+                        wrongRow.play();
+                        document.getElementById(hangngang).style.color = "red";
+                    }
+                }, 20000)
+                timeoutID6 = setTimeout(function(){
+                    document.getElementById("timeQ").innerHTML = "";
+                    if(btn.name!=5) {document.getElementById("question").innerHTML = "Ấn vào số bên cạnh hàng ngang để chọn";}
+                    else {
+                        document.getElementById("question").innerHTML = "Chuẩn bị 15 giây cuối cùng để đưa ra tín hiệu chướng ngại vật";
+                        saveAns[0]="";
+                        timeoutID7 = setTimeout(function(){
+                                document.getElementById("question").innerHTML = "15 giây cuối cùng để đưa ra tín hiệu chướng ngại vật";
+                                mainTime.play();
+                                var timeleft1 = 14;
+                                var downloadTimer1 = setInterval(function(){
+                                    if(timeleft1 <= 0){
+                                        clearInterval(downloadTimer1);
+                                        document.getElementById("question").innerHTML = "Hết giờ";
+                                    } else{
+                                        document.getElementById("question").innerHTML = timeleft1+" giây cuối cùng để đưa ra tín hiệu chướng ngại vật";
+                                    }
+                                    if(checkCNV == 1){clearInterval(downloadTimer1);}
+                                    timeleft1 -= 1;
+                                }, 1000);
+                                timeoutID8 = setTimeout(function(){
+                                    checkAnsCNV();
+                                }, 18000)
+                        }, 5000)
+                    }
+                    checkRow();
+                }, 26000)
+            }, time);
+        }, 2700)
     }
-}
-
-function turnOffQuestion(){
-    checkQuestioning = false;
-    document.getElementById("video15s").style.visibility = "hidden";
-    document.getElementById("Question").style.visibility = "hidden";
-    document.getElementById("rowButton").style.pointerEvents = "auto";
-}
-
-var d = 0; //dem so TT bam CNV
-
-function getSignal(pos){
-    d++;
-    var STT = pos.name;
-    document.getElementById("B"+STT).disabled = true;
-    var ObsSignalSound = new Audio("VCNVTinHieuCNV.mp3");
-    ObsSignalSound.play();
-    document.getElementById("Signal").style.visibility = "visible";
-    document.getElementById("Name"+STT).style.visibility = "visible";
-    document.getElementById("T"+STT).innerHTML = d + ". " + contestantName[Number(STT-1)];
-}
-
-var checkObs = false;
-
-function ShowObs(){
-    checkObs = true;
-    document.getElementById("Q1").style.visibility = "hidden";
-    document.getElementById("Q2").style.visibility = "hidden";
-    document.getElementById("Q3").style.visibility = "hidden";
-    document.getElementById("Q4").style.visibility = "hidden";
-    document.getElementById("Q5").style.visibility = "hidden";
-    for (i = 0; i<=3; i++){
-        for (j = 0; j<=rowA[i].length-1; j++){
-            document.getElementById("BackgroundRow" + String(i+1) + String(j+1)).src = "ChosenRow.png";
-            document.getElementById("Char" + String(i+1) + String(j+1)).innerHTML = rowA[i].charAt(j);
-        }
-    }
-}
-
-function WrongObs(){
-    var WrongObsSound = new Audio("VCNVSaiHangNgangHoacCNV.mp3");
-    WrongObsSound.play();
-    document.getElementById("Signal").style.visibility = "hidden";
-    document.getElementById("Name1").style.visibility = "hidden";
-    document.getElementById("Name2").style.visibility = "hidden";
-    document.getElementById("Name3").style.visibility = "hidden";
-    document.getElementById("Name4").style.visibility = "hidden";
-}
-
-function pickWinner(Winner){
-    ShowObs();
-    var RightObsSound = new Audio("VCNVDungCNV.mp3");
-    RightObsSound.play();
-    var winnerName = Winner.name;
-    //for (i=1; i<=4; i++){
-    //    if (i!=winnerName) document.getElementById("W"+winnerName).disabled = true;
-    //}
-    document.getElementById("T"+winnerName).style.color = "#FFA700";
-    document.getElementById("Signal").style.pointerEvents = "none";
-}
